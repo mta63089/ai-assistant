@@ -3,12 +3,13 @@ import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import {
   createAssistant,
   deleteAssistant,
+  deleteAssistantsWithProjectId,
   getAssistantById,
   getAssistantsByProjectId,
   updateAssistant
 } from '../src/assistants';
 import { db } from '../src/client';
-import { assistants, projects } from '../src/schema';
+import { assistants, AssistantsInsert, projects } from '../src/schema';
 
 describe('Assistants DB Queries', () => {
   let testProjectId: string;
@@ -117,4 +118,48 @@ describe('Assistants DB Queries', () => {
     expect(assistant.name).to.eq(testAssistantData.name);
     await deleteAssistant(assistant.id);
   });
+
+  (it('should delete all assistants with given project id'),
+    async () => {
+      let data;
+      const testAssistant1: AssistantsInsert = {
+        externalId: 'asst_projiddelete',
+        name: 'Thing 1',
+        description: 'Thing 1 is a thing',
+        instructions: 'You are thing 1, the cat in the hats sidekick',
+        model: 'gpt-4o',
+        projectId: testProjectId,
+        tools: [{ type: 'retrieval' }]
+      };
+
+      const testAssistant2: AssistantsInsert = {
+        externalId: 'asst_projiddelete',
+        name: 'Thing 2',
+        description: 'Thing 2 is a thing',
+        instructions: 'You are thing 2, the cat in the hats sidekick',
+        model: 'gpt-4o',
+        projectId: testProjectId,
+        tools: [{ type: 'retrieval' }]
+      };
+
+      const [thing1] = await createAssistant(testAssistant1);
+      const [thing2] = await createAssistant(testAssistant2);
+
+      // Check if we can find our assistants
+      [data] = await getAssistantById(thing1.id);
+      expect(data.name).to.eq(thing1.name);
+
+      [data] = await getAssistantById(thing2.id);
+      expect(data.name).to.eq(thing2.name);
+
+      // delete assistants
+      await deleteAssistantsWithProjectId(testProjectId);
+
+      // Make sure assistants no longer exist
+      [data] = await getAssistantById(thing1.id);
+      expect(data).toBeUndefined();
+
+      [data] = await getAssistantById(thing2.id);
+      expect(data).toBeUndefined();
+    });
 });

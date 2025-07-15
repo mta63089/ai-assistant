@@ -31,3 +31,10 @@ export async function updateAssistant(
 export async function deleteAssistant(id: string) {
   return db.delete(assistants).where(eq(assistants.id, id)).returning();
 }
+
+export async function deleteAssistantsWithProjectId(projectId: string) {
+  return await db
+    .delete(assistants)
+    .where(eq(assistants.projectId, projectId))
+    .returning();
+}
