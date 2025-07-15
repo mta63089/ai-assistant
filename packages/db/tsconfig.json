@@ -1,17 +1,17 @@
 {
   "compilerOptions": {
-    "isolatedModules": true,
-    "composite": false,
     "target": "esnext",
+    "esModuleInterop": true,
+    "strictNullChecks": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
     "module": "esnext",
+    "skipLibCheck": true,
     "moduleResolution": "bundler",
-    "lib": ["es2022", "es2020", "es2018", "es2017", "es7", "es6", "es5"],
-    "declaration": false /* Generate .d.ts files from TypeScript and JavaScript files in your project. */,
-    "declarationMap": false,
-    "sourceMap": true,
-    "allowJs": true,
-    "incremental": false,
-    "checkJs": true
+    "strict": true,
+    "lib": ["es2022", "es2020", "es2018", "es2017", "es7", "es6", "es5"]
   },
-  "exclude": ["**/dist"]
+  "include": ["**/*.ts"],
+  "exclude": ["**/dist", "node_modules"]
 }

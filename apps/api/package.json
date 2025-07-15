@@ -12,6 +12,7 @@
   "keywords": [],
   "packageManager": "pnpm@10.10.0",
   "dependencies": {
+    "@ai-assistant/db": "workspace:*",
     "@ai-sdk/openai": "^1.3.23",
     "@fastify/cors": "^11.0.1",
     "@fastify/env": "^5.0.2",
