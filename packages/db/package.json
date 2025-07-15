@@ -1,0 +1,26 @@
+{
+  "name": "@ai-assistant/db",
+  "version": "1.0.0",
+  "license": "ISC",
+  "scripts": {
+    "push": "drizzle-kit push",
+    "test": "vitest"
+  },
+  "packageManager": "pnpm@10.10.0",
+  "dependencies": {
+    "dotenv": "^17.2.0",
+    "drizzle-kit": "^0.31.4",
+    "drizzle-orm": "^0.44.3",
+    "pg": "^8.16.3"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "@types/pg": "^8.15.4",
+    "@typescript-eslint/eslint-plugin": "^8.37.0",
+    "@typescript-eslint/parser": "^8.37.0",
+    "eslint": "catalog:",
+    "eslint-plugin-drizzle": "^0.2.3",
+    "typescript": "catalog:",
+    "vitest": "^3.2.4"
+  }
+}

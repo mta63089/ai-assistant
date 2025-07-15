@@ -24,4 +24,3 @@ dist-ssr
 *.sw?
 dist-electron/
 dist-electron
-.env
