@@ -20,6 +20,7 @@
     "@typescript-eslint/parser": "^8.37.0",
     "eslint": "catalog:",
     "eslint-plugin-drizzle": "^0.2.3",
+    "prettier": "^3.6.2",
     "typescript": "catalog:",
     "vitest": "^3.2.4"
   }
