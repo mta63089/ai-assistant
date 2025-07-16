@@ -15,7 +15,7 @@ function build(opts = {}) {
     properties: {
       PORT: {
         type: 'string',
-        default: 7111
+        default: 3001
       },
       UPSTASH_REDIS_REST_URL: { type: 'string' },
       UPSTASH_REDIS_REST_TOKEN: { type: 'string' },

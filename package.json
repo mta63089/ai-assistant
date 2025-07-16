@@ -12,11 +12,20 @@
   },
   "scripts": {
     "dev": "turbo run dev",
-    "build": "turbo run build",
-    "start": "turbo run start",
-    "lint": "turbo run lint --max-warnings 0",
+    "test": "pnpm -F api test && pnpm -F @ai-assistant/db test && assistant test",
+    "build": "pnpm -F api build && pnpm -F assistant build && pnpm -F @ai-assistant/db build && docker-compose build --no-cache",
+    "start": "pnpm -F api start",
+    "lint": "pnpm -F api lint && pnpm -F @ai-assistant/db lint && pnpm -F assistant lint",
     "check-types": "turbo run check-types",
     "postinstall": "docker-compose up -d"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@swc/core",
+      "electron",
+      "esbuild",
+      "simple-git-hooks"
+    ]
   },
   "dependencies": {
     "eslint": "catalog:",

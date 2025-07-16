@@ -3,9 +3,13 @@ import neo from 'neostandard'
 
 export default [
   ...neo({
-    ts: true
+    ts: true,
+    tsconfigRootDir: './tsconfig.json'
   }),
   {
+    languageOptions: {
+      tsConfigRootDir: './tsconfig.json'
+    },
     rules: {
       'prettier/prettier': [
         'error',

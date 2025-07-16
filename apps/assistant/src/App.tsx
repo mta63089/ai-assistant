@@ -1,4 +1,4 @@
-import ChatBot from "./components/ui/chatbot";
+import ChatBot from './components/ui/chatbot'
 
 function App() {
   return (
@@ -8,7 +8,7 @@ function App() {
         <ChatBot />
       </div>
     </>
-  );
+  )
 }
 
-export default App;
+export default App

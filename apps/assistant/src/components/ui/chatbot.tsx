@@ -1,132 +1,132 @@
-import { useChat } from "@ai-sdk/react";
+import { useChat } from '@ai-sdk/react'
 import {
   Bot,
   ChevronDown,
   type LucideIcon,
   MessageSquare,
-  Sparkles,
-} from "lucide-react";
-import React, { useEffect, useRef, useState } from "react";
+  Sparkles
+} from 'lucide-react'
+import React, { useEffect, useRef, useState } from 'react'
 
 import {
   FaArrowUp as ArrowUp,
-  FaChevronLeft as ChevronLeft,
-} from "react-icons/fa6";
+  FaChevronLeft as ChevronLeft
+} from 'react-icons/fa6'
 
-import { Avatar } from "./avatar";
-import { Button } from "./button";
-import { Card } from "./card";
-import { Input } from "./input";
-import { ScrollArea } from "./scroll-area";
+import { Avatar } from './avatar'
+import { Button } from './button'
+import { Card } from './card'
+import { Input } from './input'
+import { ScrollArea } from './scroll-area'
 
-import TimeAgo from "react-timeago";
+import TimeAgo from 'react-timeago'
 
 interface ChatMessage {
-  id: string;
-  role: "function" | "assistant" | "system" | "user" | "data" | "tool";
-  content: string;
-  createdAt: Date;
-  isTyping?: boolean;
+  id: string
+  role: 'function' | 'assistant' | 'system' | 'user' | 'data' | 'tool'
+  content: string
+  createdAt: Date
+  isTyping?: boolean
 }
 
 interface ChatBotProps {
-  fixed?: boolean;
-  open?: boolean;
-  initialMessage?: string;
-  title?: string;
-  description?: string;
-  descriptionIcon?: LucideIcon;
-  botIcon?: LucideIcon | string;
-  chatIcon?: LucideIcon | string;
-  placeholderText?: string;
-  position?: "bottom-right" | "bottom-left" | "top-right" | "top-left";
-  width?: string;
-  height?: string;
-  showTimestamp?: boolean;
-  showAvatar?: boolean;
-  buttonRoundedCorners?: string;
-  animated?: boolean;
-  customStyles?: React.CSSProperties;
-  model?: string;
-  systemPrompt?: string;
-  onSendMessage?: (message: string) => void;
-  onReceiveMessage?: (message: string) => void;
-  onOpenChange?: (open: boolean) => void;
+  fixed?: boolean
+  open?: boolean
+  initialMessage?: string
+  title?: string
+  description?: string
+  descriptionIcon?: LucideIcon
+  botIcon?: LucideIcon | string
+  chatIcon?: LucideIcon | string
+  placeholderText?: string
+  position?: 'bottom-right' | 'bottom-left' | 'top-right' | 'top-left'
+  width?: string
+  height?: string
+  showTimestamp?: boolean
+  showAvatar?: boolean
+  buttonRoundedCorners?: string
+  animated?: boolean
+  customStyles?: React.CSSProperties
+  model?: string
+  systemPrompt?: string
+  onSendMessage?: (message: string) => void
+  onReceiveMessage?: (message: string) => void
+  onOpenChange?: (open: boolean) => void
 }
 
 const IconOrImage = ({
   icon: IconOrUrl,
-  className = "",
-  imgClassName = "",
+  className = '',
+  imgClassName = ''
 }: {
-  icon: LucideIcon | string;
-  className?: string;
-  imgClassName?: string;
+  icon: LucideIcon | string
+  className?: string
+  imgClassName?: string
 }) => {
-  if (typeof IconOrUrl === "string") {
-    return <img src={IconOrUrl} alt="Icon" className={imgClassName} />;
+  if (typeof IconOrUrl === 'string') {
+    return <img src={IconOrUrl} alt="Icon" className={imgClassName} />
   }
-  const Icon = IconOrUrl;
-  return <Icon className={className} />;
-};
+  const Icon = IconOrUrl
+  return <Icon className={className} />
+}
 
 export default function ChatBot({
   fixed = true,
   open = false,
   initialMessage = "👋 Hey there! I'm an AI Chatbot.\n\nFeel free to ask me anything!",
-  title = "AI Assistant",
-  description = "by mta630",
+  title = 'AI Assistant',
+  description = 'by mta630',
   descriptionIcon: DescriptionIcon = Sparkles,
   botIcon: BotIcon = Bot,
   chatIcon: ChatIcon = MessageSquare,
-  placeholderText = "Ask a question...",
-  position = "bottom-right",
-  width = "400px",
-  height = "704px",
+  placeholderText = 'Ask a question...',
+  position = 'bottom-right',
+  width = '400px',
+  height = '704px',
   showTimestamp = true,
   showAvatar = true,
-  buttonRoundedCorners = "rounded-full",
+  buttonRoundedCorners = 'rounded-full',
   animated = true,
   customStyles = {},
   model,
   systemPrompt,
   onSendMessage,
   onReceiveMessage,
-  onOpenChange,
+  onOpenChange
 }: ChatBotProps = {}) {
-  const [isOpen, setIsOpen] = useState(open);
+  const [isOpen, setIsOpen] = useState(open)
   const {
     messages: rawChatMessages,
     input,
     handleInputChange,
     handleSubmit: handleChatSubmit,
-    isLoading,
+    isLoading
   } = useChat({
     initialMessages: [
       {
-        id: "1",
-        role: "assistant",
+        id: '1',
+        role: 'assistant',
         content: initialMessage,
-        createdAt: new Date(Date.now()),
-      },
+        createdAt: new Date(Date.now())
+      }
     ],
     keepLastMessageOnError: true,
-    api: "/api/chat",
+    api: '/api/chat',
     body: {
       systemPrompt,
-      model,
-    },
-  });
+      model
+    }
+  })
 
   const chatMessages = rawChatMessages.map((message) => ({
     ...message,
-    createdAt: new Date(message.createdAt ?? Date.now()),
-  }));
+    createdAt: new Date(message.createdAt ?? Date.now())
+  }))
 
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const prevMessagesLength = useRef(chatMessages.length);
-  const [hasOverflow, setHasOverflow] = useState(false);
-  const [isScrolledTop, setIsScrolledTop] = useState(true);
+  const scrollRef = useRef<HTMLDivElement>(null)
+  const prevMessagesLength = useRef(chatMessages.length)
+  const [hasOverflow, setHasOverflow] = useState(false)
+  const [isScrolledTop, setIsScrolledTop] = useState(true)
 
   useEffect(() => {
     if (
@@ -134,84 +134,84 @@ export default function ChatBot({
       prevMessagesLength.current !== chatMessages.length
     ) {
       const scrollArea = scrollRef.current.closest(
-        "[data-radix-scroll-area-viewport]"
-      );
+        '[data-radix-scroll-area-viewport]'
+      )
       if (scrollArea) {
         scrollArea.scrollTo({
           top: scrollArea.scrollHeight,
-          behavior: "smooth",
-        });
+          behavior: 'smooth'
+        })
       }
-      prevMessagesLength.current = chatMessages.length;
+      prevMessagesLength.current = chatMessages.length
     }
-  }, [chatMessages]);
+  }, [chatMessages])
 
   useEffect(() => {
     const scrollArea = scrollRef.current?.closest(
-      "[data-radix-scroll-area-viewport]"
-    );
+      '[data-radix-scroll-area-viewport]'
+    )
     if (scrollArea) {
-      setHasOverflow(scrollArea.scrollHeight > scrollArea.clientHeight);
+      setHasOverflow(scrollArea.scrollHeight > scrollArea.clientHeight)
 
       const handleScroll = () => {
-        setIsScrolledTop(scrollArea.scrollTop === 0);
-      };
+        setIsScrolledTop(scrollArea.scrollTop === 0)
+      }
 
-      scrollArea.addEventListener("scroll", handleScroll);
-      return () => scrollArea.removeEventListener("scroll", handleScroll);
+      scrollArea.addEventListener('scroll', handleScroll)
+      return () => scrollArea.removeEventListener('scroll', handleScroll)
     }
-  }, [chatMessages]);
+  }, [chatMessages])
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+    e.preventDefault()
     if (onSendMessage) {
-      onSendMessage(input);
+      onSendMessage(input)
     }
 
-    await handleChatSubmit(e);
-  };
+    await handleChatSubmit(e)
+  }
 
   useEffect(() => {
     if (onReceiveMessage && chatMessages.length > 0) {
-      const lastMessage = chatMessages[chatMessages.length - 1];
-      if (lastMessage.role === "assistant") {
-        onReceiveMessage(lastMessage.content);
+      const lastMessage = chatMessages[chatMessages.length - 1]
+      if (lastMessage.role === 'assistant') {
+        onReceiveMessage(lastMessage.content)
       }
     }
-  }, [chatMessages, onReceiveMessage]);
+  }, [chatMessages, onReceiveMessage])
 
   const positionClasses = {
-    "bottom-right": {
-      button: "bottom-4 right-4",
-      chatbot: "bottom-12 right-4",
+    'bottom-right': {
+      button: 'bottom-4 right-4',
+      chatbot: 'bottom-12 right-4'
     },
-    "bottom-left": {
-      button: "bottom-4 left-4",
-      chatbot: "bottom-12 left-4",
+    'bottom-left': {
+      button: 'bottom-4 left-4',
+      chatbot: 'bottom-12 left-4'
     },
-    "top-right": {
-      button: "top-4 right-4",
-      chatbot: "top-20 right-4",
+    'top-right': {
+      button: 'top-4 right-4',
+      chatbot: 'top-20 right-4'
     },
-    "top-left": {
-      button: "top-4 left-4",
-      chatbot: "top-20 left-4",
-    },
-  };
+    'top-left': {
+      button: 'top-4 left-4',
+      chatbot: 'top-20 left-4'
+    }
+  }
 
-  const buttonPositionClass = fixed ? positionClasses[position].button : "";
-
-  useEffect(() => {
-    setIsOpen(open);
-  }, [open]);
+  const buttonPositionClass = fixed ? positionClasses[position].button : ''
 
   useEffect(() => {
-    onOpenChange?.(isOpen);
-  }, [isOpen, onOpenChange]);
+    setIsOpen(open)
+  }, [open])
+
+  useEffect(() => {
+    onOpenChange?.(isOpen)
+  }, [isOpen, onOpenChange])
 
   const handleToggle = () => {
-    setIsOpen((prev) => !prev);
-  };
+    setIsOpen((prev) => !prev)
+  }
 
   const TypingAnimation = () => (
     <div className="flex space-x-1 p-4 bg-border/60 max-w-auto whitespace-pre-wrap rounded-md mr-8">
@@ -219,21 +219,21 @@ export default function ChatBot({
       <div className="w-1.5 h-1.5 bg-muted-foreground rounded-full animate-bounce [animation-delay:-0.15s]" />
       <div className="w-1.5 h-1.5 bg-muted-foreground rounded-full animate-bounce" />
     </div>
-  );
+  )
 
   return (
     <div
       className={`transition-all duration-300 ease-in-out ${
-        fixed ? "fixed" : "flex flex-col items-center"
-      } ${fixed ? buttonPositionClass : ""} z-50`}
+        fixed ? 'fixed' : 'flex flex-col items-center'
+      } ${fixed ? buttonPositionClass : ''} z-50`}
       style={customStyles}
     >
       {!isOpen ? (
         <Button
           onClick={handleToggle}
           className={`${buttonRoundedCorners} h-12 w-12 p-0 shadow-[0_0_30px_rgba(0,0,0,0.1)] bg-primary ${
-            animated ? "hover:scale-110 transition-all duration-300" : ""
-          } ${!fixed ? buttonPositionClass : ""}`}
+            animated ? 'hover:scale-110 transition-all duration-300' : ''
+          } ${!fixed ? buttonPositionClass : ''}`}
         >
           <IconOrImage
             icon={ChatIcon}
@@ -245,22 +245,22 @@ export default function ChatBot({
         <>
           <Card
             className={`border-none ${
-              fixed ? "fixed mb-8" : "mb-4"
+              fixed ? 'fixed mb-8' : 'mb-4'
             } ${`rounded-md max-h-[calc(100vh-6rem)]`} flex flex-col shadow-[0_0_45px_rgba(0,0,0,0.15)] overflow-hidden ${
-              animated ? "animate-in slide-in-from-bottom-2 duration-200" : ""
+              animated ? 'animate-in slide-in-from-bottom-2 duration-200' : ''
             }`}
             style={{
               ...(fixed
                 ? {
-                    width: width,
+                    width: width
                   }
                 : { maxWidth: width }),
-              height: height,
+              height: height
             }}
           >
             <div
               className={`flex bg-background items-center p-4 relative z-20 ${
-                hasOverflow && !isScrolledTop ? "border-b" : ""
+                hasOverflow && !isScrolledTop ? 'border-b' : ''
               }`}
             >
               <Button
@@ -275,8 +275,8 @@ export default function ChatBot({
                 <div
                   className={`absolute inset-0 flex justify-center items-center transition-all duration-200 ${
                     isScrolledTop
-                      ? "opacity-100 visible delay-200"
-                      : "opacity-0 invisible delay-0 pointer-events-none"
+                      ? 'opacity-100 visible delay-200'
+                      : 'opacity-0 invisible delay-0 pointer-events-none'
                   }`}
                 >
                   <span className="font-semibold">chatbot</span>
@@ -284,8 +284,8 @@ export default function ChatBot({
                 <div
                   className={`flex items-center transition-all duration-200 ${
                     isScrolledTop
-                      ? "opacity-0 invisible delay-0 pointer-events-none"
-                      : "opacity-100 visible delay-200"
+                      ? 'opacity-0 invisible delay-0 pointer-events-none'
+                      : 'opacity-100 visible delay-200'
                   }`}
                 >
                   {showAvatar && (
@@ -336,17 +336,17 @@ export default function ChatBot({
                   <div
                     key={message.id}
                     className={`flex flex-col ${
-                      message.role === "user" ? "items-end" : "items-start"
+                      message.role === 'user' ? 'items-end' : 'items-start'
                     }`}
                   >
                     <div
                       className={`flex relative ${
-                        message.role === "user"
-                          ? "justify-end"
-                          : "justify-start items-end gap-3"
+                        message.role === 'user'
+                          ? 'justify-end'
+                          : 'justify-start items-end gap-3'
                       }`}
                     >
-                      {showAvatar && message.role !== "user" && (
+                      {showAvatar && message.role !== 'user' && (
                         <Avatar
                           className={`h-8 w-8 bg-border/60 rounded-md flex items-center justify-center`}
                         >
@@ -361,9 +361,9 @@ export default function ChatBot({
                       <div className="group relative">
                         <div
                           className={`p-4 max-w-auto whitespace-pre-wrap rounded-md ${
-                            message.role === "user"
-                              ? "bg-primary text-primary-foreground ml-8"
-                              : "bg-border/70 mr-8 font-light font-inter text-md"
+                            message.role === 'user'
+                              ? 'bg-primary text-primary-foreground ml-8'
+                              : 'bg-border/70 mr-8 font-light font-inter text-md'
                           }`}
                         >
                           {message.content}
@@ -373,35 +373,35 @@ export default function ChatBot({
                           <Card
                             className={`absolute -top-10 left-0 ${
                               animated
-                                ? "opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-                                : ""
+                                ? 'opacity-0 group-hover:opacity-100 transition-opacity duration-200'
+                                : ''
                             } p-2 text-xs`}
                           >
                             {(() => {
-                              const date = message.createdAt;
-                              const now = new Date();
+                              const date = message.createdAt
+                              const now = new Date()
                               const isToday =
-                                date.toDateString() === now.toDateString();
+                                date.toDateString() === now.toDateString()
                               const isThisYear =
-                                date.getFullYear() === now.getFullYear();
+                                date.getFullYear() === now.getFullYear()
 
                               if (isToday) {
-                                return date.toLocaleTimeString("en-US", {
-                                  hour: "numeric",
-                                  minute: "2-digit",
-                                  hour12: true,
-                                });
+                                return date.toLocaleTimeString('en-US', {
+                                  hour: 'numeric',
+                                  minute: '2-digit',
+                                  hour12: true
+                                })
                               } else if (isThisYear) {
-                                return date.toLocaleDateString("en-US", {
-                                  month: "short",
-                                  day: "numeric",
-                                });
+                                return date.toLocaleDateString('en-US', {
+                                  month: 'short',
+                                  day: 'numeric'
+                                })
                               } else {
-                                return date.toLocaleDateString("en-US", {
-                                  month: "short",
-                                  day: "numeric",
-                                  year: "2-digit",
-                                });
+                                return date.toLocaleDateString('en-US', {
+                                  month: 'short',
+                                  day: 'numeric',
+                                  year: '2-digit'
+                                })
                               }
                             })()}
                           </Card>
@@ -410,18 +410,18 @@ export default function ChatBot({
                     </div>
                     {showTimestamp &&
                       index === chatMessages.length - 1 &&
-                      message.role === "assistant" && (
+                      message.role === 'assistant' && (
                         <div className="text-xs text-muted-foreground mt-1 text-left ml-11 mb-4">
-                          Bot ·{" "}
+                          Bot ·{' '}
                           <TimeAgo
                             date={message.createdAt}
                             formatter={(value, unit) => {
-                              if (unit === "second" && value < 60) {
-                                return "Just now";
+                              if (unit === 'second' && value < 60) {
+                                return 'Just now'
                               }
                               return `${value} ${unit}${
-                                value !== 1 ? "s" : ""
-                              } ago`;
+                                value !== 1 ? 's' : ''
+                              } ago`
                             }}
                           />
                           .
@@ -433,7 +433,7 @@ export default function ChatBot({
                 {isLoading &&
                   (!chatMessages.length ||
                     chatMessages[chatMessages.length - 1].role !==
-                      "assistant") && (
+                      'assistant') && (
                     <div className="flex flex-col items-start">
                       <div className="flex items-start gap-3">
                         {showAvatar && (
@@ -484,20 +484,20 @@ export default function ChatBot({
           <Button
             onClick={handleToggle}
             className={`${buttonRoundedCorners} h-12 w-12 p-0 shadow-lg bg-primary ${
-              animated ? "hover:scale-110 transition-all duration-300" : ""
-            } ${!fixed ? buttonPositionClass : ""}`}
+              animated ? 'hover:scale-110 transition-all duration-300' : ''
+            } ${!fixed ? buttonPositionClass : ''}`}
           >
             <ChevronDown
-              style={{ width: "22px", height: "22px", fill: "currentColor" }}
+              style={{ width: '22px', height: '22px', fill: 'currentColor' }}
               className={`text-primary-foreground ${
                 animated
-                  ? "transition-transform duration-300 -rotate-45 animate-out [animation-fill-mode:forwards]"
-                  : ""
+                  ? 'transition-transform duration-300 -rotate-45 animate-out [animation-fill-mode:forwards]'
+                  : ''
               }`}
             />
           </Button>
         </>
       )}
     </div>
-  );
+  )
 }

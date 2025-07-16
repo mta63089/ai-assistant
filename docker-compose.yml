@@ -1,15 +1,13 @@
-version: '3.9'
-
 services:
   db:
-    image: postgres:15
+    image: postgres:16
     container_name: assistant-db
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: assistant
     ports:
-      - "5435:5432"
+      - "5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
     networks:
@@ -20,6 +18,7 @@ services:
       context: .
       dockerfile: apps/api/Dockerfile
     ports:
+      - "7111:7111"
       - "3001:3001"
     volumes:
       - ./uploads:/app/uploads
