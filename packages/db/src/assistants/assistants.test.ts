@@ -7,14 +7,14 @@ import {
   getAssistantById,
   getAssistantsByProjectId,
   updateAssistant
-} from '../src/assistants';
-import { db } from '../src/client';
-import { assistants, AssistantsInsert, projects } from '../src/schema';
+} from '.';
+import { db } from '../client';
+import { assistants, AssistantsInsert, projects } from '../schema';
 
 describe('Assistants DB Queries', () => {
   let testProjectId: string;
   let testAssistantId: string;
-  let testAssistantData;
+  let testAssistantData: AssistantsInsert;
 
   beforeAll(async () => {
     const [project] = await db

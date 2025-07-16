@@ -25,3 +25,7 @@ dist-ssr
 dist-electron/
 dist-electron
 .env
+/uploads
+files
+uploads/
+files/

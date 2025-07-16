@@ -6,6 +6,7 @@ import Fastify from 'fastify'
 import { assistantsRoutes } from './routes/assistants'
 import chatRoute from './routes/chat'
 import helloWorld from './routes/hello-world'
+import { projectsRoutes } from './routes/projects'
 
 function build(opts = {}) {
   const schema = {
@@ -38,6 +39,7 @@ function build(opts = {}) {
 
   // ROUTE REGISTERS
   app.register(chatRoute)
+  app.register(projectsRoutes)
   app.register(assistantsRoutes)
   app.register(helloWorld)
 

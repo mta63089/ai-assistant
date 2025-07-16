@@ -1,6 +1,6 @@
 import { eq } from 'drizzle-orm';
-import { db } from './client';
-import { assistants, AssistantsInsert } from './schema';
+import { db } from '../client';
+import { assistants, AssistantsInsert } from '../schema';
 
 export async function createAssistant(data: AssistantsInsert) {
   return await db.insert(assistants).values(data).returning();

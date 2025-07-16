@@ -1,9 +1,9 @@
-version: "3.9"
+version: '3.9'
+
 services:
   db:
-    image: postgres:16
-    container_name: assistant_db
-    restart: always
+    image: postgres:15
+    container_name: assistant-db
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
@@ -12,6 +12,26 @@ services:
       - "5435:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
+    networks:
+      - assistant-net
+
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./uploads:/app/uploads
+    depends_on:
+      - db
+    networks:
+      - assistant-net
+    env_file:
+      - apps/api/.env
 
 volumes:
   pgdata:
+
+networks:
+  assistant-net:

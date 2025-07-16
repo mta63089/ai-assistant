@@ -1,5 +1,6 @@
 import { InferInsertModel, InferSelectModel } from 'drizzle-orm';
 import {
+  integer,
   jsonb,
   pgTable,
   text,
@@ -109,3 +110,21 @@ export const runs = pgTable('runs', {
 
 export type RunsSelect = InferSelectModel<typeof runs>;
 export type RunsInsert = InferInsertModel<typeof runs>;
+
+// packages/db/src/schema.ts (append to schema)
+
+export const files = pgTable('files', {
+  id: uuid('id').defaultRandom().primaryKey(),
+  name: text('name').notNull(), // user-given or original filename
+  type: text('type').notNull(), // MIME type
+  path: text('path').notNull(), // relative disk path
+  size: integer('size').notNull(),
+  uploadedAt: timestamp('uploaded_at', { withTimezone: true }).defaultNow(),
+  projectId: uuid('project_id')
+    .references(() => projects.id)
+    .notNull(), // if relevant
+  metadata: jsonb('metadata').default({})
+});
+
+export type FilesSelect = InferSelectModel<typeof files>;
+export type FilesInsert = InferSelectModel<typeof files>;

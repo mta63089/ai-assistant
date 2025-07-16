@@ -5,10 +5,15 @@ export default [
   ...neo({
     ts: true
   }),
-  eslintPluginPrettierRecommended,
   {
     rules: {
-      '@stylistic/space-before-function-paren': 'off',
+      'prettier/prettier': [
+        'error',
+        {
+          'space-before-function-paren': 'off'
+        }
+      ],
+      '@stylistic/space-before-function-paren': ['error', 'off'],
       '@stylistic/comma-dangle': [
         'error',
         {
@@ -19,6 +24,8 @@ export default [
           functions: 'never'
         }
       ]
-    }
-  }
+    },
+    ignores: ['dist', 'node_modules']
+  },
+  eslintPluginPrettierRecommended
 ]

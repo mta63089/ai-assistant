@@ -1,1 +1,175 @@
-{"numTotalTestSuites":2,"numPassedTestSuites":2,"numFailedTestSuites":0,"numPendingTestSuites":0,"numTotalTests":6,"numPassedTests":6,"numFailedTests":0,"numPendingTests":0,"numTodoTests":0,"snapshot":{"added":0,"failure":false,"filesAdded":0,"filesRemoved":0,"filesRemovedList":[],"filesUnmatched":0,"filesUpdated":0,"matched":0,"total":0,"unchecked":0,"uncheckedKeysByFile":[],"unmatched":0,"updated":0,"didUpdate":false},"startTime":1752610967692,"success":true,"testResults":[{"assertionResults":[{"ancestorTitles":["Assistants API routes"],"fullName":"Assistants API routes POST /assistants - should create an assistant","status":"passed","title":"POST /assistants - should create an assistant","duration":14.377334000000019,"failureMessages":[],"meta":{}},{"ancestorTitles":["Assistants API routes"],"fullName":"Assistants API routes GET /assistants/:id - should retrieve the assistant","status":"passed","title":"GET /assistants/:id - should retrieve the assistant","duration":2.134311999999909,"failureMessages":[],"meta":{}},{"ancestorTitles":["Assistants API routes"],"fullName":"Assistants API routes GET /projects/:projectId/assistants - should list assistants by project","status":"passed","title":"GET /projects/:projectId/assistants - should list assistants by project","duration":1.2784480000000258,"failureMessages":[],"meta":{}},{"ancestorTitles":["Assistants API routes"],"fullName":"Assistants API routes PATCH /assistants/:id - should update assistant name","status":"passed","title":"PATCH /assistants/:id - should update assistant name","duration":3.0420179999999846,"failureMessages":[],"meta":{}},{"ancestorTitles":["Assistants API routes"],"fullName":"Assistants API routes DELETE /assistants/:id - should delete the assistant","status":"passed","title":"DELETE /assistants/:id - should delete the assistant","duration":2.5469450000000506,"failureMessages":[],"meta":{}},{"ancestorTitles":["Assistants API routes"],"fullName":"Assistants API routes GET /assistants/:id - should return 404 for deleted assistant","status":"passed","title":"GET /assistants/:id - should return 404 for deleted assistant","duration":1.0534059999999954,"failureMessages":[],"meta":{}}],"startTime":1752610968438,"endTime":1752610968463.0535,"status":"passed","message":"","name":"/home/mta630/Desktop/Projects/ai-assistant/apps/api/src/routes/assistants/assistants.test.ts"}]}
+{
+  "numTotalTestSuites": 4,
+  "numPassedTestSuites": 4,
+  "numFailedTestSuites": 0,
+  "numPendingTestSuites": 0,
+  "numTotalTests": 14,
+  "numPassedTests": 14,
+  "numFailedTests": 0,
+  "numPendingTests": 0,
+  "numTodoTests": 0,
+  "snapshot": {
+    "added": 0,
+    "failure": false,
+    "filesAdded": 0,
+    "filesRemoved": 0,
+    "filesRemovedList": [],
+    "filesUnmatched": 0,
+    "filesUpdated": 0,
+    "matched": 0,
+    "total": 0,
+    "unchecked": 0,
+    "uncheckedKeysByFile": [],
+    "unmatched": 0,
+    "updated": 0,
+    "didUpdate": false
+  },
+  "startTime": 1752618605526,
+  "success": true,
+  "testResults": [
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["Assistants API routes"],
+          "fullName": "Assistants API routes POST /assistants - should create an assistant",
+          "status": "passed",
+          "title": "POST /assistants - should create an assistant",
+          "duration": 15.592786000110209,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["Assistants API routes"],
+          "fullName": "Assistants API routes GET /assistants/:id - should retrieve the assistant",
+          "status": "passed",
+          "title": "GET /assistants/:id - should retrieve the assistant",
+          "duration": 2.1477210000157356,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["Assistants API routes"],
+          "fullName": "Assistants API routes GET /projects/:projectId/assistants - should list assistants by project",
+          "status": "passed",
+          "title": "GET /projects/:projectId/assistants - should list assistants by project",
+          "duration": 1.272631999803707,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["Assistants API routes"],
+          "fullName": "Assistants API routes PATCH /assistants/:id - should update assistant name",
+          "status": "passed",
+          "title": "PATCH /assistants/:id - should update assistant name",
+          "duration": 3.106821999885142,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["Assistants API routes"],
+          "fullName": "Assistants API routes DELETE /assistants/:id - should delete the assistant",
+          "status": "passed",
+          "title": "DELETE /assistants/:id - should delete the assistant",
+          "duration": 2.707687000045553,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["Assistants API routes"],
+          "fullName": "Assistants API routes GET /assistants/:id - should return 404 for deleted assistant",
+          "status": "passed",
+          "title": "GET /assistants/:id - should return 404 for deleted assistant",
+          "duration": 1.0273009999655187,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1752620954927,
+      "endTime": 1752620954953.0273,
+      "status": "passed",
+      "message": "",
+      "name": "/home/mta630/Desktop/Projects/ai-assistant/apps/api/src/routes/assistants/assistants.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["Projects API routes"],
+          "fullName": "Projects API routes POST /projects - should create a project",
+          "status": "passed",
+          "title": "POST /projects - should create a project",
+          "duration": 31.701036000158638,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["Projects API routes"],
+          "fullName": "Projects API routes GET /projects/:id - should retrieve the project",
+          "status": "passed",
+          "title": "GET /projects/:id - should retrieve the project",
+          "duration": 2.7728480002842844,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["Projects API routes"],
+          "fullName": "Projects API routes GET /projects/:id - should return 404 if not found",
+          "status": "passed",
+          "title": "GET /projects/:id - should return 404 if not found",
+          "duration": 1.275052999611944,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["Projects API routes"],
+          "fullName": "Projects API routes GET /projects - should return list of projects",
+          "status": "passed",
+          "title": "GET /projects - should return list of projects",
+          "duration": 1.325112999882549,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["Projects API routes"],
+          "fullName": "Projects API routes PATCH /projects/:id - should update project name",
+          "status": "passed",
+          "title": "PATCH /projects/:id - should update project name",
+          "duration": 3.2137719998136163,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["Projects API routes"],
+          "fullName": "Projects API routes PATCH /projects/:id - should return 404 for non-existent ID",
+          "status": "passed",
+          "title": "PATCH /projects/:id - should return 404 for non-existent ID",
+          "duration": 2.602576000150293,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["Projects API routes"],
+          "fullName": "Projects API routes DELETE /projects/:id - should delete the project",
+          "status": "passed",
+          "title": "DELETE /projects/:id - should delete the project",
+          "duration": 3.1998919998295605,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["Projects API routes"],
+          "fullName": "Projects API routes DELETE /projects/:id - should return 404 if not found",
+          "status": "passed",
+          "title": "DELETE /projects/:id - should return 404 if not found",
+          "duration": 2.0531109999865294,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1752620954899,
+      "endTime": 1752620954947.0532,
+      "status": "passed",
+      "message": "",
+      "name": "/home/mta630/Desktop/Projects/ai-assistant/apps/api/src/routes/projects/projects.test.ts"
+    }
+  ]
+}
