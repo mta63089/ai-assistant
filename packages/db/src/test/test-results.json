@@ -1,1 +1,202 @@
-{"numTotalTestSuites":4,"numPassedTestSuites":4,"numFailedTestSuites":0,"numPendingTestSuites":0,"numTotalTests":17,"numPassedTests":17,"numFailedTests":0,"numPendingTests":0,"numTodoTests":0,"snapshot":{"added":0,"failure":false,"filesAdded":0,"filesRemoved":0,"filesRemovedList":[],"filesUnmatched":0,"filesUpdated":0,"matched":0,"total":0,"unchecked":0,"uncheckedKeysByFile":[],"unmatched":0,"updated":0,"didUpdate":false},"startTime":1752618623885,"success":true,"testResults":[{"assertionResults":[{"ancestorTitles":["Assistants DB Queries"],"fullName":"Assistants DB Queries should create an assistant","status":"passed","title":"should create an assistant","duration":3.854029999999966,"failureMessages":[],"meta":{}},{"ancestorTitles":["Assistants DB Queries"],"fullName":"Assistants DB Queries should select assistant from id","status":"passed","title":"should select assistant from id","duration":1.8473800000000438,"failureMessages":[],"meta":{}},{"ancestorTitles":["Assistants DB Queries"],"fullName":"Assistants DB Queries should get assistants by project id","status":"passed","title":"should get assistants by project id","duration":0.8994250000000648,"failureMessages":[],"meta":{}},{"ancestorTitles":["Assistants DB Queries"],"fullName":"Assistants DB Queries should update an assistant","status":"passed","title":"should update an assistant","duration":1.8984500000000253,"failureMessages":[],"meta":{}},{"ancestorTitles":["Assistants DB Queries"],"fullName":"Assistants DB Queries should return null when updating non-existent assistant","status":"passed","title":"should return null when updating non-existent assistant","duration":0.7366729999999961,"failureMessages":[],"meta":{}},{"ancestorTitles":["Assistants DB Queries"],"fullName":"Assistants DB Queries should delete an assistant","status":"passed","title":"should delete an assistant","duration":2.737324000000058,"failureMessages":[],"meta":{}},{"ancestorTitles":["Assistants DB Queries"],"fullName":"Assistants DB Queries should return null when deleting non-existent assistant","status":"passed","title":"should return null when deleting non-existent assistant","duration":0.7753940000000057,"failureMessages":[],"meta":{}},{"ancestorTitles":["Assistants DB Queries"],"fullName":"Assistants DB Queries should handle long instructions and metadata","status":"passed","title":"should handle long instructions and metadata","duration":3.8941409999999905,"failureMessages":[],"meta":{}},{"ancestorTitles":["Assistants DB Queries"],"fullName":"Assistants DB Queries should delete all assistants with given project id","status":"passed","title":"should delete all assistants with given project id","duration":0.19345100000009552,"failureMessages":[],"meta":{}}],"startTime":1752618624432,"endTime":1752618624449.1934,"status":"passed","message":"","name":"/home/mta630/Desktop/Projects/ai-assistant/packages/db/src/assistants/assistants.test.ts"},{"assertionResults":[{"ancestorTitles":["Projects DB Queries"],"fullName":"Projects DB Queries should create a project","status":"passed","title":"should create a project","duration":5.02318600000001,"failureMessages":[],"meta":{}},{"ancestorTitles":["Projects DB Queries"],"fullName":"Projects DB Queries should get project by id","status":"passed","title":"should get project by id","duration":1.454808000000071,"failureMessages":[],"meta":{}},{"ancestorTitles":["Projects DB Queries"],"fullName":"Projects DB Queries should return undefined for non-existent id","status":"passed","title":"should return undefined for non-existent id","duration":0.8415939999999864,"failureMessages":[],"meta":{}},{"ancestorTitles":["Projects DB Queries"],"fullName":"Projects DB Queries should return all projects (at least one)","status":"passed","title":"should return all projects (at least one)","duration":1.0204649999999447,"failureMessages":[],"meta":{}},{"ancestorTitles":["Projects DB Queries"],"fullName":"Projects DB Queries should update a project","status":"passed","title":"should update a project","duration":1.9935609999999997,"failureMessages":[],"meta":{}},{"ancestorTitles":["Projects DB Queries"],"fullName":"Projects DB Queries should return undefined when updating nonexistent project","status":"passed","title":"should return undefined when updating nonexistent project","duration":0.5846930000000157,"failureMessages":[],"meta":{}},{"ancestorTitles":["Projects DB Queries"],"fullName":"Projects DB Queries should delete a project","status":"passed","title":"should delete a project","duration":3.685628999999949,"failureMessages":[],"meta":{}},{"ancestorTitles":["Projects DB Queries"],"fullName":"Projects DB Queries should return undefined when deleting non-existent project","status":"passed","title":"should return undefined when deleting non-existent project","duration":0.4333129999999983,"failureMessages":[],"meta":{}}],"startTime":1752618624437,"endTime":1752618624452.4333,"status":"passed","message":"","name":"/home/mta630/Desktop/Projects/ai-assistant/packages/db/src/projects/projects.test.ts"}]}
+{
+  "numTotalTestSuites": 4,
+  "numPassedTestSuites": 4,
+  "numFailedTestSuites": 0,
+  "numPendingTestSuites": 0,
+  "numTotalTests": 17,
+  "numPassedTests": 17,
+  "numFailedTests": 0,
+  "numPendingTests": 0,
+  "numTodoTests": 0,
+  "snapshot": {
+    "added": 0,
+    "failure": false,
+    "filesAdded": 0,
+    "filesRemoved": 0,
+    "filesRemovedList": [],
+    "filesUnmatched": 0,
+    "filesUpdated": 0,
+    "matched": 0,
+    "total": 0,
+    "unchecked": 0,
+    "uncheckedKeysByFile": [],
+    "unmatched": 0,
+    "updated": 0,
+    "didUpdate": false
+  },
+  "startTime": 1752618623885,
+  "success": true,
+  "testResults": [
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["Assistants DB Queries"],
+          "fullName": "Assistants DB Queries should create an assistant",
+          "status": "passed",
+          "title": "should create an assistant",
+          "duration": 3.854029999999966,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["Assistants DB Queries"],
+          "fullName": "Assistants DB Queries should select assistant from id",
+          "status": "passed",
+          "title": "should select assistant from id",
+          "duration": 1.8473800000000438,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["Assistants DB Queries"],
+          "fullName": "Assistants DB Queries should get assistants by project id",
+          "status": "passed",
+          "title": "should get assistants by project id",
+          "duration": 0.8994250000000648,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["Assistants DB Queries"],
+          "fullName": "Assistants DB Queries should update an assistant",
+          "status": "passed",
+          "title": "should update an assistant",
+          "duration": 1.8984500000000253,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["Assistants DB Queries"],
+          "fullName": "Assistants DB Queries should return null when updating non-existent assistant",
+          "status": "passed",
+          "title": "should return null when updating non-existent assistant",
+          "duration": 0.7366729999999961,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["Assistants DB Queries"],
+          "fullName": "Assistants DB Queries should delete an assistant",
+          "status": "passed",
+          "title": "should delete an assistant",
+          "duration": 2.737324000000058,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["Assistants DB Queries"],
+          "fullName": "Assistants DB Queries should return null when deleting non-existent assistant",
+          "status": "passed",
+          "title": "should return null when deleting non-existent assistant",
+          "duration": 0.7753940000000057,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["Assistants DB Queries"],
+          "fullName": "Assistants DB Queries should handle long instructions and metadata",
+          "status": "passed",
+          "title": "should handle long instructions and metadata",
+          "duration": 3.8941409999999905,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["Assistants DB Queries"],
+          "fullName": "Assistants DB Queries should delete all assistants with given project id",
+          "status": "passed",
+          "title": "should delete all assistants with given project id",
+          "duration": 0.19345100000009552,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1752618624432,
+      "endTime": 1752618624449.1934,
+      "status": "passed",
+      "message": "",
+      "name": "/home/mta630/Desktop/Projects/ai-assistant/packages/db/src/assistants/assistants.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["Projects DB Queries"],
+          "fullName": "Projects DB Queries should create a project",
+          "status": "passed",
+          "title": "should create a project",
+          "duration": 5.02318600000001,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["Projects DB Queries"],
+          "fullName": "Projects DB Queries should get project by id",
+          "status": "passed",
+          "title": "should get project by id",
+          "duration": 1.454808000000071,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["Projects DB Queries"],
+          "fullName": "Projects DB Queries should return undefined for non-existent id",
+          "status": "passed",
+          "title": "should return undefined for non-existent id",
+          "duration": 0.8415939999999864,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["Projects DB Queries"],
+          "fullName": "Projects DB Queries should return all projects (at least one)",
+          "status": "passed",
+          "title": "should return all projects (at least one)",
+          "duration": 1.0204649999999447,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["Projects DB Queries"],
+          "fullName": "Projects DB Queries should update a project",
+          "status": "passed",
+          "title": "should update a project",
+          "duration": 1.9935609999999997,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["Projects DB Queries"],
+          "fullName": "Projects DB Queries should return undefined when updating nonexistent project",
+          "status": "passed",
+          "title": "should return undefined when updating nonexistent project",
+          "duration": 0.5846930000000157,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["Projects DB Queries"],
+          "fullName": "Projects DB Queries should delete a project",
+          "status": "passed",
+          "title": "should delete a project",
+          "duration": 3.685628999999949,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["Projects DB Queries"],
+          "fullName": "Projects DB Queries should return undefined when deleting non-existent project",
+          "status": "passed",
+          "title": "should return undefined when deleting non-existent project",
+          "duration": 0.4333129999999983,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1752618624437,
+      "endTime": 1752618624452.4333,
+      "status": "passed",
+      "message": "",
+      "name": "/home/mta630/Desktop/Projects/ai-assistant/packages/db/src/projects/projects.test.ts"
+    }
+  ]
+}

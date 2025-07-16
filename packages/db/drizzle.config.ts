@@ -6,12 +6,7 @@ export default defineConfig({
   out: './drizzle', // path to migrations
   dialect: 'postgresql',
   dbCredentials: {
-    url: process.env.DATABASE_URL,
-    port: 5435,
-    host: 'localhost',
-    user: 'postgres',
-    password: 'postgres',
-    database: 'assistant',
+    url: process.env.DATABASE_URL || 'undefined',
     ssl: false
   }
 });
